@@ -1,6 +1,6 @@
 <?php
 require_once("Conexion.php");
-class Area
+class Repuestos
 {
 	public function ObtenerTodos()
 	{

@@ -1,30 +1,30 @@
 <?php
 require_once("Conexion.php");
-class Area
+class Mecanicos
 {
 	public function ObtenerTodos()
 	{
 		$conexion = new Conexion;
-		$area = $conexion->consultar('mecanico');
+		$area = $conexion->consultar('mecanicos');
 		return $area;
 	}
 	public function nuevo($datos)
 	{
 		$conexion = new Conexion;
-		$area = $conexion->insertar('mecanico', $datos);
+		$area = $conexion->insertar('mecanicos', $datos);
 		return $area;
 	}
 	public function Guardar($datos, $filtro)
 	{
 		$conexion = new Conexion;
-		$area = $conexion->actualizar('mecanico', $datos, $filtro);
+		$area = $conexion->actualizar('mecanicos', $datos, $filtro);
 		return $area;
 	}
 
 	public function ObtenerFiltro($filtro)
 	{
 		$conexion = new Conexion;
-		$area = $conexion->consultarFiltro('mecanico', $filtro);
+		$area = $conexion->consultarFiltro('mecanicos', $filtro);
 		return $area;
 	}
 }

@@ -4,7 +4,7 @@ class Conexion
     private $usuario = "root";
     private $pass = "";
     private $dbcon = null;
-    private $dns = "mysql:host=localhost:3306;dbname=farmacia";
+    private $dns = "mysql:host=localhost:3306;dbname=taller_juan";
     private $error = null;
 
     private function conectar()

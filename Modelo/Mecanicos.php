@@ -27,4 +27,10 @@ class Mecanicos
 		$area = $conexion->consultarFiltro('mecanicos', $filtro);
 		return $area;
 	}
+	public function Eliminar($filtro)
+	{
+		$conexion=new Conexion;
+		$area = $conexion -> eliminar('mecanicos',$filtro);
+		return $area;
+	}
 }

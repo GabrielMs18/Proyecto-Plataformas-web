@@ -14,7 +14,7 @@
   <script type='text/javascript'>
     function cargarcontrolador() {
 
-      $.post("../../Controlador/MecanicosController.php", {
+      $.post("../../Controlador/RepuestosController.php", {
         'opcion': 'consultar'
       }, respuesta);
     }
@@ -25,14 +25,14 @@
 
     function eliminar(codigo)
     {
-      $.post("../../Controlador/MecanicosController.php",
-        { 'opcion': 'eliminar', 'id_mecanico': codigo }, respuesta);
+      $.post("../../Controlador/RepuestosController.php",
+        { 'opcion': 'eliminar', 'id_repuestos': codigo }, respuesta);
 
-      window.location.href = "tablaMecanicos.php";
+      window.location.href = "tablaRespuestos.php";
     }
 
     function editar(codigo) {
-      document.location.href = "updateMecanico.php?id=" + codigo;
+      document.location.href = "updateRepuestos.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>
@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="nav-link text-white ">
+                <a href="../Mecanicos/tablaMecanicos.php" class="nav-link text-white ">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li>
-                <a href="Clientes/Clientes_Table_Admin.php" class="nav-link text-white active">
+                <a href="" class="nav-link text-white active">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -79,7 +79,7 @@
 
     <div class="edi">
       <h1 class="text-center">Repuestos</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="newMecanico.php">Nuevo Repuesto</a></button>
+      <button type="button" class="btn btn-outline-dark"><a href="newRepuesto.php">Nuevo Repuesto</a></button>
       <br />
       <table class="table" id="datos">
         <thead>

@@ -26,7 +26,7 @@
     function eliminar(codigo)
     {
       $.post("../../Controlador/MecanicosController.php",
-        { 'opcion': 'eliminar', 'id_mecanico': codigo }, respuesta);
+        { 'opcion': 'eliminar', 'id': codigo }, respuesta);
 
       window.location.href = "tablaMecanicos.php";
     }

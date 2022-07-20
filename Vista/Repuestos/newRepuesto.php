@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a class="boton regresar">Regresar</a>
+    <a href="tablaRepuestos.php" class="boton regresar">Regresar</a>
     <main class="contenedor seccion">
         <form action="">
             <fieldset>

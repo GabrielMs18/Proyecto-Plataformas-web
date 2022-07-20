@@ -26,9 +26,9 @@
     function eliminar(codigo)
     {
       $.post("../../Controlador/RepuestosController.php",
-        { 'opcion': 'eliminar', 'id_repuestos': codigo }, respuesta);
+        { 'opcion': 'eliminar', 'id': codigo }, respuesta);
 
-      window.location.href = "tablaRespuestos.php";
+      window.location.href = "tablaRepuestos.php";
     }
 
     function editar(codigo) {

@@ -14,7 +14,7 @@
   <script type='text/javascript'>
     function cargarcontrolador() {
 
-      $.post("../../Controlador/MecanicosController.php", {
+      $.post("../../Controlador/RepuestosController.php", {
         'opcion': 'consultar'
       }, respuesta);
     }
@@ -25,14 +25,14 @@
 
     function eliminar(codigo)
     {
-      $.post("../../Controlador/MecanicosController.php",
-        { 'opcion': 'eliminar', 'id_mecanico': codigo }, respuesta);
+      $.post("../../Controlador/RepuestosController.php",
+        { 'opcion': 'eliminar', 'id_repuestos': codigo }, respuesta);
 
-      window.location.href = "tablaMecanicos.php";
+      window.location.href = "tablaRespuestos.php";
     }
 
     function editar(codigo) {
-      document.location.href = "updateMecanico.php?id=" + codigo;
+      document.location.href = "updateRepuestos.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>
@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="nav-link text-white active">
+                <a href="../Mecanicos/tablaMecanicos.php" class="nav-link text-white ">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li>
-                <a href="../Repuestos/tablaRepuestos.php" class="nav-link text-white">
+                <a href="" class="nav-link text-white active">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -78,16 +78,17 @@
     </div>
 
     <div class="edi">
-      <h1 class="text-center">Mecanicos</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="newMecanico.php">Nuevo Mecanico</a></button>
+      <h1 class="text-center">Repuestos</h1>
+      <button type="button" class="btn btn-outline-dark"><a href="newRepuesto.php">Nuevo Repuesto</a></button>
       <br />
       <table class="table" id="datos">
         <thead>
           <tr>
             <th scope="col">id</th>
             <th scope="col">nombre</th>
-            <th scope="col">apellido</th>
-            <th scope="col">telefono</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">stock</th>
+            <th scope="col">precio</th>
           </tr>
         </thead>
         <tbody>

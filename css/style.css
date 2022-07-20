@@ -9,6 +9,7 @@
     --fuentePrincipal: 3.8rem;
     --grisclaro: #cfe2f5;
 }
+
 .contenedor {
     width: 70%;
     max-width: 90rem;
@@ -17,14 +18,12 @@
     margin: 0 auto;
 }
 
-
-
 .cuerpo{
     display: flex;
 }
 
 legend{
-    font-size: 8rem;
+    font-size: 4rem;
     font-weight: bold;
     color: var(--grisOscuro);
 }
@@ -34,6 +33,7 @@ label{
     text-transform: uppercase;
     display: block;
 }
+
 input:not([type="submit"]),
 textarea,
 select  {
@@ -46,19 +46,22 @@ select  {
     margin-bottom: 2rem;
 }
 
+.regresar{
+    width: 8rem;
+    margin-left: 2rem;
+}
 textarea{
-    height: 20rem;
+    height: 10rem;
     /* margin-bottom: 1rem; */
 }
 
 fieldset{
     margin: 2rem 0;
-    border: 2px solid var(--grisOscuro)
-    
+    border: 2px solid var(--grisOscuro);
 }
 
 .boton{
-    background-color: var(--verde);
+    background-color: var(--secundario);
     color: var(--blanco);
     font-weight: 700;
     text-decoration: none;
@@ -67,10 +70,8 @@ fieldset{
     margin-top: calc(5rem/2);
     display: block;
     border: none;
-
-    
 }
 .boton:hover{
-    background-color: darken(var(--verde), 5);
+    background-color: #00707c;
     cursor: pointer;
 }

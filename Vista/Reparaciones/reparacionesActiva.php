@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li>
-                <a href="Reparaciones/reparacionesActiva.php" class="nav-link text-white active">
+                <a href="" class="nav-link text-white active">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li>
-                <a href="../Repuestos/tablaRespuestos.php" class="nav-link text-white ">
+                <a href="../Repuestos/tablaRepuestos.php" class="nav-link text-white ">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -86,7 +86,7 @@
     </div>
 
     <div class="edi">
-      <h1 class="text-center">Reparaciones en cuso</h1>
+      <h1 class="text-center">Reparaciones en curso</h1>
       <table class="table" id="datos">
         <thead>
           <tr>

@@ -27,4 +27,10 @@ class Reparacion
 		$area = $conexion->consultarFiltro('reparacion', $filtro);
 		return $area;
 	}
+	public function Eliminar($filtro)
+	{
+		$conexion=new Conexion;
+		$area = $conexion -> eliminar('reparacion',$filtro);
+		return $area;
+	}
 }

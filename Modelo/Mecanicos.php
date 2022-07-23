@@ -5,7 +5,7 @@ class Mecanicos
 	public function ObtenerTodos()
 	{
 		$conexion = new Conexion;
-		$area = $conexion->consultar('mecanicos');
+		$area = $conexion -> consultar('mecanicos');
 		return $area;
 	}
 	public function nuevo($datos)

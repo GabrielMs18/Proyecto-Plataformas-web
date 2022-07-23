@@ -13,16 +13,16 @@
 	<script type='text/javascript'>
 		$(function() {
 			$("#codigo").focusout(function() {
-				$.post("../../Controlador/MecanicosController.php", {
+				$.post("../../Controlador/RepuestosController.php", {
 					'opcion': 'consultaxcodigo',
 					'codigo': $("#codigo").val()
 				}, respuesta1, 'json');
 			});
 
 			$("#guardar").click(function() {
-				$.post("../../Controlador/MecanicosController.php",
+				$.post("../../Controlador/RepuestosController.php",
 					$("#datos").serialize(), respuesta2);
-				window.location.href = "tablaMecanicos.php";
+				window.location.href = "tablaRepuestos.php";
 			});
 		});
 
@@ -34,7 +34,7 @@
 		}
 
 		function cargardatos() {
-			$.post("../../Controlador/MecanicosController.php", {
+			$.post("../../Controlador/RepuestosController.php", {
 				'opcion': 'consultaxcodigo',
 				'codigo': getParameterByName('id')
 			}, respuesta1, 'json');
@@ -43,8 +43,9 @@
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
 			$("#nombre").val(arg[0].nombre);
-			$("#apellido").val(arg[0].apellido);
-			$("#telefono").val(arg[0].telefono);
+			$("#descripcion").val(arg[0].descripcion);
+			$("#stock").val(arg[0].stock);
+			$("#precio").val(arg[0].precio);
 		}
 		function respuesta2(arg) {
 			alert(arg);
@@ -57,16 +58,18 @@
     <main class="contenedor seccion">
         <form id="datos">
             <fieldset>
-                <input type="hidden" class="form-control" name="opcion" value="actualizar"  />
+                <input type="hidden" class="form-control" name="opcion" value="actualizar"/>
                 <legend>Datos Mecanico</legend>
                 <label for="codigo">ID:</label>
                 <input type="number" id="codigo" name="codigo">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente">
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Apellido del cliente">
-                <label for="telefono">Telefono:</label>
-                <input type="number" id="telefono" name="telefono" placeholder="EJ: 0923377972">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre del repuesto">
+                <label for="descripcion">descripcion:</label>
+                <input type="text" id="descripcion" name="descripcion" placeholder="descripcion del repuesto">
+				<label for="stock">stock:</label>
+                <input type="text" id="stock" name="stock" placeholder="stock del repuesto">
+                <label for="precio">precio:</label>
+                <input type="precio" id="precio" name="precio" placeholder="EJ: 0923377972">
             </fieldset>
             <button type="button" class="boton"  id="guardar">Guardar</button>
         </form>

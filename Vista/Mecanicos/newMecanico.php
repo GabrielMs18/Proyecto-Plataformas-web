@@ -38,7 +38,6 @@
             </fieldset>
             <button type="button" class="boton"  id="guardar">Guardar</button>
         </form>
-        <!-- <input type="submit" value="Enviar formulario" class="boton"> -->
     </main>
 </body>
 </html>

@@ -59,7 +59,7 @@
             <fieldset>
                 <input type="text" class="form-control" name="opcion" value="actualizar" hidden />
                 <legend>Datos Mecanico</legend>
-                <label for="codigo">Nombre:</label>
+                <label for="codigo">ID:</label>
                 <input type="number" id="codigo" name="codigo">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente">

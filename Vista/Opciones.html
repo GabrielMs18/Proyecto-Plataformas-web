@@ -20,6 +20,15 @@
             });
         });
 
+        function cargarcontroladorCombo() {
+            $.post("../Controlador/MecanicosController.php",
+                { 'opcion': 'combo' }, respuestaCombo);
+        }
+
+        function respuestaCombo(arg) {
+            $("#mecanico").append(arg);
+        }
+
         function respuesta(arg) {
             alert(arg);
         }
@@ -97,8 +106,9 @@
 
                 <legend>Datos Servicio</legend>
 
-                <label for="mecanico">Mecanico:</label>
-                <input type="text" id="mecanico" name="mecanico" placeholder="Nombre del mecanico">
+                <label for="mecanico"> Mecanico: </label>
+                <select id="mecanico" name="mecanico">
+                </select>
 
                 <label for="vehiculo">Vehiculo:</label>
                 <input type="text" id="vehiculo" name="vehiculo" placeholder="Nombre del vehiculo">

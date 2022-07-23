@@ -26,6 +26,18 @@ switch ($_POST['opcion']) {
         echo $tabla;
         break;
 
+
+    case 'combo':
+        $datos = $objregistro->ObtenerTodos();
+        $combo="";
+        foreach($datos as $fila)
+        {
+            $combo.="<option value=".$fila['apellido'].">".$fila['apellido']."</option>";
+        }
+        echo $combo;	
+        break;	
+
+
     case 'ingresar':
         $datos['nombre'] = $_POST['nombre'];
         $datos['apellido'] = $_POST['apellido'];

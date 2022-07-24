@@ -7,6 +7,19 @@ $sql = $con->prepare("SELECT id, nombre, descripcion, precio FROM respuestos");
 $sql->execute();
 $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['codigo'];
+    $repuesto =  $_POST['repuesto'];
+    $precio = $_POST['precio'];
+    $repuesto1 =  $_POST['repuesto1'];
+    $precio1 =  $_POST['precio1'];
+
+    $query = $con->prepare("UPDATE reparacion SET repuesto = '$repuesto + $repuesto1',  precio = '$precio ' WHERE id = $id");
+    $query->execute();
+    $resultado = $query->fetchALL(PDO::FETCH_ASSOC);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,17 +40,17 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
                 }, respuesta1, 'json');
             });
 
-            $("#guardar").click(function() {
-                $.post("../../Controlador/ReparacionActivaController.php",
-                    $("#datos").serialize(), respuesta2);
-                window.location.href = "../Reparaciones/reparacionesActiva.php";
-            });
+            // $("#guardar").click(function() {
+            //     $.post("../../Controlador/ReparacionActivaController.php",
+            //         $("#datos").serialize(), respuesta2);
+            //     window.location.href = "../Reparaciones/reparacionesActiva.php";
+            // });
         });
-        function guardarv(){
-            $.post("../../Controlador/ReparacionActivaController.php",
-                    $("#datos").serialize(), respuesta2);
-                window.location.href = "../Reparaciones/reparacionesActiva.php";
-		}
+
+        function guardarv() {
+            header('Location: ../Reparaciones/reparacionesActiva.php');
+        }
+
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -63,6 +76,9 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
             $("#modelo").val(arg[0].modelo);
             $("#placa").val(arg[0].placa);
             $("#fallas").val(arg[0].fallas);
+            $("#repuesto1").val(arg[0].repuesto);
+            $("#precio1").val(arg[0].precio);
+
         }
 
         function respuesta2(arg) {
@@ -77,33 +93,16 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
     <a href="../Reparaciones/reparacionesActiva.php" class="boton regresar">Regresar</a>
     <h1 class="titulo">Escoger el repuesto</h1>
     <main class="contenedor seccion">
-        <form id="datos" method="post">
-            <input type="hidden" class="form-control" name="opcion" value="actualizar" />
+        <form id="datos" method="post" action="listaRepuesto.php">
+            <!-- <input type="hidden" class="form-control" name="opcion" value="actualizar" /> -->
             <legend>Datos Orden de pago</legend>
-            <label for="codigo">ID:</label>
-            <input type="number" id="codigo" name="codigo">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre">
-            <label for="cedula">cedula:</label>
-            <input type="text" id="cedula" name="cedula">
-            <label for="telefono">telefono:</label>
-            <input type="text" id="telefono" name="telefono">
-            <label for="mecanico">mecanico:</label>
-            <input type="text" id="mecanico" name="mecanico">
-            <label for="vehiculo">vehiculo:</label>
-            <input type="text" id="vehiculo" name="vehiculo">
-            <label for="marca">marca:</label>
-            <input type="text" id="marca" name="marca">
-            <label for="modelo">modelo:</label>
-            <input type="text" id="modelo" name="modelo">
-            <label for="placa">placa:</label>
-            <input type="text" id="placa" name="placa">
-            <label for="fallas">fallas:</label>
-            <input type="text" id="fallas" name="fallas">
 
             <div class="container py-3 m-auto-righ m-auto-left">
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                     <?php foreach ($resultado as $row) { ?>
+                        <label for="codigo">ID:</label>
+                        <input type="number" id="codigo" name="codigo">
+                        <input type="number" id="codigo" name="codigo">
 
                         <div class="col">
 
@@ -112,11 +111,18 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
 
                                     <div class="card-body">
                                         <input type="text" id="repuesto" name="repuesto" value="<?php echo $row['nombre'] ?>"></input>
+                                        <input type="hidden" id="repuesto1" name="repuesto1"></input>
+
                                         <label for="descripcion">Descripcion</label>
                                         <p><?php echo $row['descripcion'] ?></p>
+
                                         <label for="precio">Precio</label>
                                         <input type="number" id="precio" name="precio" value="<?php echo $row['precio'] ?>"></input>
-                                        <button type="button" class="boton" id="guardar" onClick="guardarv()">Recarga ahora!!</button>
+                                        <input type="hidden" id="precio1" name="precio1"></input>
+
+
+                                        <button type="submit" class="boton" id="guardar" onClick="guardarv()">Recarga ahora!!</button>
+
                                     </div>
                                 </form>
                             </div>

@@ -11,11 +11,12 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['codigo'];
     $repuesto =  $_POST['repuesto'];
-    $precio = $_POST['precio'];
+    $precio =+ intval($_POST['precio']);
     $repuesto1 =  $_POST['repuesto1'];
     $precio1 =  $_POST['precio1'];
+    $precioF = $precio + $precio1;
 
-    $query = $con->prepare("UPDATE reparacion SET repuesto = '$repuesto + $repuesto1',  precio = '$precio ' WHERE id = $id");
+    $query = $con->prepare("UPDATE reparacion SET repuesto = '$repuesto + $repuesto1',  precio = '$precioF' WHERE id = $id");
     $query->execute();
     $resultado = $query->fetchALL(PDO::FETCH_ASSOC);
 }
@@ -96,13 +97,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form id="datos" method="post" action="listaRepuesto.php">
             <!-- <input type="hidden" class="form-control" name="opcion" value="actualizar" /> -->
             <legend>Datos Orden de pago</legend>
+            <label for="codigo">ID:</label>
+            <input type="number" id="codigo" name="codigo">
 
             <div class="container py-3 m-auto-righ m-auto-left">
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                     <?php foreach ($resultado as $row) { ?>
-                        <label for="codigo">ID:</label>
-                        <input type="number" id="codigo" name="codigo">
-                        <input type="number" id="codigo" name="codigo">
+
+
 
                         <div class="col">
 

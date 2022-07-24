@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $repuesto1 =  $_POST['repuesto1'];
     $precio1 =  $_POST['precio1'];
     $precioF = $precio + $precio1;
-
     $query = $con->prepare("UPDATE reparacion SET repuesto = '$repuesto + $repuesto1',  precio = '$precioF' WHERE id = $id");
     $query->execute();
     $resultado = $query->fetchALL(PDO::FETCH_ASSOC);
+    header('Location: ../Reparaciones/reparacionesActiva.php');
 }
 
 ?>
@@ -41,17 +41,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }, respuesta1, 'json');
             });
 
-            // $("#guardar").click(function() {
-            //     $.post("../../Controlador/ReparacionActivaController.php",
-            //         $("#datos").serialize(), respuesta2);
-            //     window.location.href = "../Reparaciones/reparacionesActiva.php";
-            // });
+            $("#guardar").click(function() {
+                window.location.href = "../Reparaciones/reparacionesActiva.php";
+            });
         });
 
         function guardarv() {
             header('Location: ../Reparaciones/reparacionesActiva.php');
         }
 
+        
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -103,9 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="container py-3 m-auto-righ m-auto-left">
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                     <?php foreach ($resultado as $row) { ?>
-
-
-
                         <div class="col">
 
                             <div class="card mb-1 rounded-3 shadow-sm border-primary">
@@ -123,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <input type="hidden" id="precio1" name="precio1"></input>
 
 
-                                        <button type="submit" class="boton" id="guardar" onClick="guardarv()">Recarga ahora!!</button>
+                                        <button type="submit" class="boton" id="guardar" name="guardar">Recarga ahora!!</button>
 
                                     </div>
                                 </form>

@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <input type="hidden" id="precio1" name="precio1"></input>
 
 
-                            <button type="submit" class="boton" id="guardar" name="guardar">Recarga ahora!!</button>
+                            <button type="submit" class="boton" id="guardar" name="guardar">Seleccionar</button>
 
                         </div>
                     </form>

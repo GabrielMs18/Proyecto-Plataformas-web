@@ -49,6 +49,8 @@
             $("#modelo").val(arg[0].modelo);
             $("#placa").val(arg[0].placa);
             $("#fallas").val(arg[0].fallas);
+            $("#repuesto").val(arg[0].repuesto);
+            $("#precio").val(arg[0].precio);
         }
 
         function respuesta2(arg) {
@@ -92,6 +94,10 @@
 
                 <label for="fallas">Fallas:</label>
                 <input type="text" id="fallas" name="fallas" placeholder="EJ: 0923377972">
+
+                <input type="hidden" id="repuesto" name="repuesto" placeholder="EJ: 0923377972">
+
+                <input type="hidden" id="precio" name="precio" placeholder="EJ: 0923377972">
             </fieldset>
             <input type="hidden" name="generar_factura" value="true">
             <div class="botones">

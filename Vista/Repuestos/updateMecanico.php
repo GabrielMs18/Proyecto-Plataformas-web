@@ -69,7 +69,7 @@
 				<label for="stock">stock:</label>
                 <input type="text" id="stock" name="stock" placeholder="stock del repuesto">
                 <label for="precio">precio:</label>
-                <input type="precio" id="precio" name="precio" placeholder="EJ: 0923377972">
+                <input type="text" id="precio" name="precio" placeholder="EJ: 0923377972">
             </fieldset>
             <button type="button" class="boton"  id="guardar">Guardar</button>
         </form>

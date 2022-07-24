@@ -59,6 +59,9 @@ switch ($_POST['opcion']) {
         $datos['modelo'] = $_POST['modelo'];
         $datos['placa'] = $_POST['placa'];
         $datos['fallas'] = $_POST['fallas'];
+        $datos['repuesto'] = $_POST['repuesto'];
+        $datos['precio'] = $_POST['precio'];
+
         echo $datos = $objregistro->Guardar($datos, $filtro);
         break;
 

@@ -70,6 +70,7 @@ fieldset{
     margin-top: calc(5rem/2);
     display: block;
     border: none;
+    
 }
 .boton:hover{
     background-color: #00707c;
@@ -79,4 +80,21 @@ fieldset{
     display: flex;
     justify-content: space-around;
 
+}
+.titulo{
+    text-align: center;
+}
+.contenedor_repuestos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 80px;
+}
+.repuestos{
+    border: 1.5px solid black;
+    border-radius: 8%;
+    padding: 20px 20px;
+}
+.boton-centrado{
+    display: flex;
+    justify-content: center;
 }

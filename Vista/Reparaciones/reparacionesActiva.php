@@ -31,6 +31,11 @@
       window.location.href = "reparacionesActiva.php";
     }
 
+    function repuesto(codigo) {
+      document.location.href = "../Repuestos/listaRepuesto.php?id=" + codigo;
+    }
+    window.onload = cargarcontrolador;
+
     function editar(codigo) {
       document.location.href = "factura.php?id=" + codigo;
     }

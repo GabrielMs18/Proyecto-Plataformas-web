@@ -75,3 +75,8 @@ fieldset{
     background-color: #00707c;
     cursor: pointer;
 }
+.botones{
+    display: flex;
+    justify-content: space-around;
+
+}

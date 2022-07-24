@@ -20,7 +20,7 @@
             $("#guardar").click(function() {
                 $.post("../../Controlador/ReparacionActivaController.php",
                     $("#datos").serialize(), respuesta2);
-                window.location.href = "index.html";
+                window.location.href = "reparacionesActiva.php";
             });
         });
 
@@ -39,10 +39,16 @@
         }
 
         function respuesta1(arg) {
-            $("#codigo").val(arg[0].Id);
-            $("#descripcion").val(arg[0].descripcion);
-            $("#fecha").val(arg[0].fecha_creacion);
-            $("#estado").val(arg[0].estado);
+            $("#codigo").val(arg[0].id);
+            $("#nombre").val(arg[0].nombre);
+            $("#cedula").val(arg[0].cedula);
+            $("#telefono").val(arg[0].telefono);
+            $("#mecanico").val(arg[0].mecanico);
+            $("#vehiculo").val(arg[0].vehiculo);
+            $("#marca").val(arg[0].marca);
+            $("#modelo").val(arg[0].modelo);
+            $("#placa").val(arg[0].placa);
+            $("#fallas").val(arg[0].fallas);
         }
 
         function respuesta2(arg) {
@@ -53,41 +59,45 @@
 </head>
 
 <body>
-    <a href="tablaMecanicos.php" class="boton regresar">Regresar</a>
+    <a href="reparacionesActiva.php" class="boton regresar">Regresar</a>
     <main class="contenedor seccion">
         <form id="datos" method="post" action="../../js/FPDF/facturas.php">
             <fieldset>
-                <input type="hidden" name="opcion" value="ingresar" />
+                <input type="hidden" name="opcion" value="actualizar" />
+                <input type="hidden" id="codigo" name="codigo">
                 <legend>Datos Mecanico</legend>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente">
 
-                <label for="cedula">Apellido:</label>
+                <label for="cedula">Cedula:</label>
                 <input type="text" id="cedula" name="cedula" placeholder="Apellido del cliente">
 
                 <label for="telefono">Telefono:</label>
                 <input type="number" id="telefono" name="telefono" placeholder="EJ: 0923377972">
 
-                <label for="mecanico">Telefono:</label>
-                <input type="number" id="mecanico" name="mecanico" placeholder="EJ: 0923377972">
+                <label for="mecanico">Mecanico:</label>
+                <input type="text" id="mecanico" name="mecanico" placeholder="EJ: 0923377972">
 
-                <label for="vehiculo">Telefono:</label>
-                <input type="number" id="vehiculo" name="vehiculo" placeholder="EJ: 0923377972">
+                <label for="mecanico">Mecanico:</label>
+                <input type="text" id="vehiculo" name="vehiculo" placeholder="EJ: 0923377972">
 
-                <label for="marca">Telefono:</label>
-                <input type="number" id="marca" name="marca" placeholder="EJ: 0923377972">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" placeholder="EJ: 0923377972">
 
-                <label for="modelo">Telefono:</label>
-                <input type="number" id="modelo" name="modelo" placeholder="EJ: 0923377972">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" placeholder="EJ: 0923377972">
 
-                <label for="placa">Telefono:</label>
-                <input type="number" id="placa" name="placa" placeholder="EJ: 0923377972">
+                <label for="placa">Placa:</label>
+                <input type="text" id="placa" name="placa" placeholder="EJ: 0923377972">
 
-                <label for="fallas">Telefono:</label>
-                <input type="number" id="fallas" name="fallas" placeholder="EJ: 0923377972">
+                <label for="fallas">Fallas:</label>
+                <input type="text" id="fallas" name="fallas" placeholder="EJ: 0923377972">
             </fieldset>
             <input type="hidden" name="generar_factura" value="true">
-            <button type="submit" class="boton" id="guardar">Guardar</button>
+            <div class="botones">
+            <button type="button" class="boton" id="guardar">Guardar</button>
+            <button type="submit" class="boton">Generar Factura</button>
+            </div>
         </form>
     </main>
 </body>

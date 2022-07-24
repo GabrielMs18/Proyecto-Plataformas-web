@@ -32,7 +32,7 @@
     }
 
     function editar(codigo) {
-      document.location.href = "updateRepuestos.php?id=" + codigo;
+      document.location.href = "factura.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>

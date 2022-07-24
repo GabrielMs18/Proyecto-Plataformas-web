@@ -33,7 +33,11 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
                 window.location.href = "../Reparaciones/reparacionesActiva.php";
             });
         });
-
+        function guardarv(){
+            $.post("../../Controlador/ReparacionActivaController.php",
+                    $("#datos").serialize(), respuesta2);
+                window.location.href = "../Reparaciones/reparacionesActiva.php";
+		}
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -73,7 +77,7 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
     <a href="../Reparaciones/reparacionesActiva.php" class="boton regresar">Regresar</a>
     <h1 class="titulo">Escoger el repuesto</h1>
     <main class="contenedor seccion">
-        <form id="datos">
+        <form id="datos" method="post">
             <input type="hidden" class="form-control" name="opcion" value="actualizar" />
             <legend>Datos Orden de pago</legend>
             <label for="codigo">ID:</label>
@@ -97,7 +101,30 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
             <label for="fallas">fallas:</label>
             <input type="text" id="fallas" name="fallas">
 
-            <div class="contenedor_repuestos">
+            <div class="container py-3 m-auto-righ m-auto-left">
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <?php foreach ($resultado as $row) { ?>
+
+                        <div class="col">
+
+                            <div class="card mb-1 rounded-3 shadow-sm border-primary">
+                                <form id="datos" method="post">
+
+                                    <div class="card-body">
+                                        <input type="text" id="repuesto" name="repuesto" value="<?php echo $row['nombre'] ?>"></input>
+                                        <label for="descripcion">Descripcion</label>
+                                        <p><?php echo $row['descripcion'] ?></p>
+                                        <label for="precio">Precio</label>
+                                        <input type="number" id="precio" name="precio" value="<?php echo $row['precio'] ?>"></input>
+                                        <button type="button" class="boton" id="guardar" onClick="guardarv()">Recarga ahora!!</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <?php    } ?>
+                </div>
+            </div>
+            <!-- <div class="contenedor_repuestos">
 
                 <?php foreach ($resultado as $row) { ?>
 
@@ -111,13 +138,13 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
                         <input type= "number" id="precio" name="precio" value= "<?php echo $row['precio'] ?>" ></input>
 
                         <div class="boton-centrado">
-                            <button type="button" class="boton" id="guardar">Seleccionar</button>
+                            <button type="button" class="boton" name="btneviar" id="guardar">Seleccionar</button>
                         </div>
                     </article>
 
                 <?php } ?>
             </div>
-        </form>
+        </form> -->
     </main>
 </body>
 

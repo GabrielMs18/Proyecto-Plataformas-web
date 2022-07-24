@@ -11,7 +11,7 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['codigo'];
     $repuesto =  $_POST['repuesto'];
-    $precio =+ intval($_POST['precio']);
+    $precio = +intval($_POST['precio']);
     $repuesto1 =  $_POST['repuesto1'];
     $precio1 =  $_POST['precio1'];
     $precioF = $precio + $precio1;
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: ../Reparaciones/reparacionesActiva.php');
         }
 
-        
+
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -98,57 +98,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <legend>Datos Orden de pago</legend>
             <label for="codigo">ID:</label>
             <input type="number" id="codigo" name="codigo">
-
-            <div class="container py-3 m-auto-righ m-auto-left">
-                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-                    <?php foreach ($resultado as $row) { ?>
-                        <div class="col">
-
-                            <div class="card mb-1 rounded-3 shadow-sm border-primary">
-                                <form id="datos" method="post">
-
-                                    <div class="card-body">
-                                        <input type="text" id="repuesto" name="repuesto" value="<?php echo $row['nombre'] ?>"></input>
-                                        <input type="hidden" id="repuesto1" name="repuesto1"></input>
-
-                                        <label for="descripcion">Descripcion</label>
-                                        <p><?php echo $row['descripcion'] ?></p>
-
-                                        <label for="precio">Precio</label>
-                                        <input type="number" id="precio" name="precio" value="<?php echo $row['precio'] ?>"></input>
-                                        <input type="hidden" id="precio1" name="precio1"></input>
-
-
-                                        <button type="submit" class="boton" id="guardar" name="guardar">Recarga ahora!!</button>
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    <?php    } ?>
-                </div>
-            </div>
-            <!-- <div class="contenedor_repuestos">
+            <div class="contenedor_repuestos">
 
                 <?php foreach ($resultado as $row) { ?>
 
-                    <article class="repuestos">
+                    <form id="datos" method="post">
 
-                        <input type="text" id="repuesto" name="repuesto" value="<?php echo $row['nombre'] ?>"  ></input>
-                        <label for="descripcion">Descripcion</label>
-                        <p><?php echo $row['descripcion'] ?></p>
+                        <div class="repuestos">
+                            <input type="text" id="repuesto" name="repuesto" value="<?php echo $row['nombre'] ?>"></input>
+                            <input type="hidden" id="repuesto1" name="repuesto1"></input>
 
-                        <label for="precio">Precio</label>
-                        <input type= "number" id="precio" name="precio" value= "<?php echo $row['precio'] ?>" ></input>
+                            <label for="descripcion">Descripcion</label>
+                            <p><?php echo $row['descripcion'] ?></p>
 
-                        <div class="boton-centrado">
-                            <button type="button" class="boton" name="btneviar" id="guardar">Seleccionar</button>
+                            <label for="precio">Precio</label>
+                            <input type="number" id="precio" name="precio" value="<?php echo $row['precio'] ?>"></input>
+                            <input type="hidden" id="precio1" name="precio1"></input>
+
+
+                            <button type="submit" class="boton" id="guardar" name="guardar">Recarga ahora!!</button>
+
                         </div>
-                    </article>
+                    </form>
 
-                <?php } ?>
+                <?php    } ?>
             </div>
-        </form> -->
     </main>
 </body>
 

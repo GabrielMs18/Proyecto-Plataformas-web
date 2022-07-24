@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2022 a las 18:51:19
+-- Tiempo de generación: 25-07-2022 a las 00:21:02
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -39,10 +39,9 @@ CREATE TABLE `mecanicos` (
 --
 
 INSERT INTO `mecanicos` (`id`, `nombre`, `apellido`, `telefono`) VALUES
-(7, 'pepito', 'tomala', '7894651320'),
-(4, 'Josué', 'montesdeoc', '0927599001'),
-(5, 'Diana', 'Campaña', '0965471825'),
-(8, 'pepito', 'pancracio', '0965841651');
+(11, 'Carlos', 'Parrales', '0936251447'),
+(10, 'Javier', 'Murillo', '0958471425'),
+(9, 'Josue', 'Miño', '0927599001');
 
 -- --------------------------------------------------------
 
@@ -70,7 +69,8 @@ CREATE TABLE `reparacion` (
 --
 
 INSERT INTO `reparacion` (`id`, `nombre`, `cedula`, `telefono`, `mecanico`, `vehiculo`, `marca`, `modelo`, `placa`, `fallas`, `repuesto`, `precio`) VALUES
-(2, 'juansad', '0927599001', 969144431, 'juan pueblo', 'carro', 'la calle', 'gucci', 'gye 1234', 'ya enciende', 'rueda', 15);
+(17, 'Gabriel', '0927599001', 969144431, 'Parrales', 'Carro', 'Nissan', 'GT-R NISMO', 'GYE 895', 'Cambio del filtro de aceite', '', 0),
+(16, 'Marta', '0958361425', 936475928, 'Murillo', 'Carro', 'Chevrolet', 'Aveo', 'GQY 495', 'Problema con los neumáticos (dañados)', '', 0);
 
 -- --------------------------------------------------------
 
@@ -91,9 +91,8 @@ CREATE TABLE `respuestos` (
 --
 
 INSERT INTO `respuestos` (`id`, `nombre`, `descripcion`, `stock`, `precio`) VALUES
-(10, 'ventana', 'pa cubrirse', 80, 100),
-(9, 'puerta', 'pa cerrarla', 20, 500),
-(8, 'rueda', 'centro del carro', 20, 15);
+(12, 'Neumático ', 'Los neumáticos del coche ', 50, 100),
+(11, 'Ventana', 'Parte del auto que va uni', 20, 90);
 
 --
 -- Índices para tablas volcadas
@@ -125,19 +124,19 @@ ALTER TABLE `respuestos`
 -- AUTO_INCREMENT de la tabla `mecanicos`
 --
 ALTER TABLE `mecanicos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `reparacion`
 --
 ALTER TABLE `reparacion`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestos`
 --
 ALTER TABLE `respuestos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
